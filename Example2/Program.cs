@@ -8,45 +8,14 @@ namespace Example2
 {
     class Program
     {
-        //static void ConsoleWrite(double data)
-        //{
-        //    Console.WriteLine(data);
-        //}
-
         static void Main(string[] args)
         {
-            //Converter<double, string> converter = d => d.ToString();
-
-            //Action<bool> print = d => Console.WriteLine(d);
-
-            //Func<double, double> square = d => d * d;
-            //Func<double, double, double> add = (x, y) => x + y;
-            //Predicate<double> isLessThanTen = d => d < 10;
-
-            //print(isLessThanTen(square(add(3, 5))));
-
-            //var buffer = new Buffer<double>();
-
             var buffer = new CircularBuffer<double>(capacity: 3);
             buffer.ItemDiscarded += ItemDiscarded;
 
             ProcessInput(buffer);
 
-            //var asDates = buffer.Map(d => new DateTime(2010, 1, 1).AddDays(d));
-            //foreach(var date in asDates)
-            //{
-            //    Console.WriteLine(date);
-            //}
-
-            //var consoleOut = new Printer<double>(ConsoleWrite);
-
             buffer.Dump(d => Console.WriteLine(d));
-
-            //var asInts = buffer.AsEnumerableOf<double, int>();
-            //foreach(var item in asInts)
-            //{
-            //    Console.WriteLine(item);
-            //}
 
             ProcessBuffer(buffer);
 
@@ -84,8 +53,5 @@ namespace Example2
                 break;
             }
         }
-
-
-
     }
 }
